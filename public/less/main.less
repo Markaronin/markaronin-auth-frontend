@@ -1,0 +1,32 @@
+
+.navbar {
+    margin-bottom: 0.5em;
+    &>.navlink {
+        display: inline-block;
+        border: 1px solid #777;
+        border-radius: 0.5em;
+        padding: 0.5em;
+        margin-right: 0.1em;
+        background-color: #333;
+        &:hover {
+            background-color: #444;
+        }
+        &.activeNavlink {
+            background-color: #222;
+            &:hover {
+                background-color: #222;
+            }
+        }
+    }
+}
+
+ 
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(39, 39, 39);
+    color: rgb(175, 175, 175);
+}
+a {
+    color: rgb(175, 175, 175);
+}
