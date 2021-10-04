@@ -13,3 +13,10 @@ export function getCookie(cname: string) {
     }
     return "";
 }
+export function getBaseDomain() {
+    const hostName = location.hostname.split('.');
+    while (hostName.length > 2) {
+        hostName.shift();
+    }
+    return hostName.join('.')
+}

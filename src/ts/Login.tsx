@@ -1,8 +1,9 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import { APIHelper } from "./api-helper";
+import { getBaseDomain } from "./util";
 
 export const Login = () => {
-    const [username, setUsername] = useState("")
+    const [usernameOrEmail, setUsernameOrEmail] = useState("")
     const [password, setPassword] = useState("")
     const [waiting, setWaiting] = useState(false);
     const [hadError, setHadError] = useState(false);
@@ -12,20 +13,20 @@ export const Login = () => {
         setWaiting(true);
         setHadError(false);
         setHadInvalidCredentials(false);
-        const response = await APIHelper.login({username, password});
+        const response = await APIHelper.login({usernameOrEmail, password});
         setWaiting(false);
         if (!response.success) {
             setHadError(true);
         } else if (!response.valid) {
             setHadInvalidCredentials(true);
         } else {
-            document.cookie = `Auth=${response.token};max-age=${60 * 60 * 24 * 365};domain=markaronin.com`;
+            document.cookie = `Auth=${response.token};max-age=${60 * 60 * 24 * 365};domain=${getBaseDomain()}`;
             // TODO - do a redirect here
         }
     }
 
     const loginOnEnterPress = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === "Enter" && [username, password].every(val => val.length > 0)) {
+        if (event.key === "Enter" && [usernameOrEmail, password].every(val => val.length > 0)) {
             handleLogin()
         }
     }
@@ -34,8 +35,8 @@ export const Login = () => {
         <input 
             type="text" 
             placeholder="Username/Email" 
-            value={username} 
-            onChange={(event: ChangeEvent<HTMLInputElement>) => setUsername(event.currentTarget.value)} 
+            value={usernameOrEmail} 
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setUsernameOrEmail(event.currentTarget.value)} 
             onKeyDown={loginOnEnterPress}
             disabled={waiting} 
         />
