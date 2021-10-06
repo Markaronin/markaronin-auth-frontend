@@ -5,7 +5,7 @@ interface UnsuccessfulRequest {
 export class APIHelper {
     private static readonly baseUrl = "https://api.auth.markaronin.com"
 
-    public static login(body: {usernameOrEmail: string, password: string}): Promise<UnsuccessfulRequest | {success: true, valid: false} | {success: true, valid: true, token: string}> {
+    public static login(body: {usernameOrEmail: string, password: string}): Promise<UnsuccessfulRequest | {success: true, valid: false} | {success: true, valid: true, cookies: string[]}> {
         return APIHelper.jsonPostRequest("login", body)
     }
 

@@ -1,6 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import { APIHelper } from "./api-helper";
-import { getBaseDomain } from "./util";
 
 export const Login = () => {
     const [usernameOrEmail, setUsernameOrEmail] = useState("")
@@ -20,7 +19,7 @@ export const Login = () => {
         } else if (!response.valid) {
             setHadInvalidCredentials(true);
         } else {
-            document.cookie = `Auth=${response.token};max-age=${60 * 60 * 24 * 365};domain=${getBaseDomain()}`;
+            response.cookies.forEach(cookie => document.cookie = cookie)
             // TODO - do a redirect here
         }
     }
