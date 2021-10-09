@@ -21,7 +21,11 @@ export const Register = () => {
             setHadInvalidCredentials(true);
         } else {
             document.cookie = `Auth=${response.token};max-age=${60 * 60 * 24 * 365};domain=markaronin.com`;
-            // TODO - do a redirect here
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirect = urlParams.get('redirect');
+            if (redirect) {
+                window.location.href = redirect;
+            }
         }
     }
 

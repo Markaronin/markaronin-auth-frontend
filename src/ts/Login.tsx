@@ -20,7 +20,11 @@ export const Login = () => {
             setHadInvalidCredentials(true);
         } else {
             response.cookies.forEach(cookie => document.cookie = cookie)
-            // TODO - do a redirect here
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirect = urlParams.get('redirect');
+            if (redirect) {
+                window.location.href = redirect;
+            }
         }
     }
 

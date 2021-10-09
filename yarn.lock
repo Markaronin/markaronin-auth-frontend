@@ -14,6 +14,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
   integrity sha512-HyYEUDeIj5rRQU2Hk5HTB2uHsbRQpF70nvMhVzi+VJR0X+xNEhjPui4/kBf3VeH/wqD28PT4sVOm8qqLjBrSZg==
 
+"@markaronin/jefferson-util@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@markaronin/jefferson-util/-/jefferson-util-1.0.3.tgz#e149bed5ca2eab9f5400cc992310cdb1fe48bfc7"
+  integrity sha512-MvJ/1/DqQc1rQTzVHcvbBnaOddGcIib9DkvSc/GoSdjdt7dEDMwuzhuj7bh921mes1ppUjgjxHizvpjonmjquQ==
+
 "@types/eslint-scope@^3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.0.tgz#4792816e31119ebd506902a482caec4951fabd86"
