@@ -16,6 +16,7 @@ export class APIHelper {
     public static jsonPostRequest(url: string, body: any): Promise<any | UnsuccessfulRequest> {
         return APIHelper.handleFetch(url, {
             method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
         })
     }
